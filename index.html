@@ -8,9 +8,32 @@
     <!--Link para Favicon-->
     <link rel="icon" type="image/x-icon" href="./asset/img/favicon-32x32.png" />
     <!--hoja Css-->
-    <link rel="stylesheet" href="./asset/css/style.css" />
+    <!--<link rel="stylesheet" href="./asset/css/style.css" />-->
   </head>
   <body>
+    <!--Encabezado-->
+    <header id="header" class="header">
+      <h1 class="header__h1">Splitter</h1>
+    </header>
+    <!--Main-->
+    <main id="main">
+      <form id="main-form" class="form">
+        <label class="form__label">Bill</label>
+        <input type="number" id="total-bill" class="form__input" />
+        <div class="form_btns">
+          <button type="button" class="form_btns_button">5%</button>
+          <button type="button" class="form_btns_button">10%</button>
+          <button type="button" class="form_btns_button">15%</button>
+          <button type="button" class="form_btns_button">20%</button>
+          <button type="button" class="form_btns_button">25%</button>
+          <button type="button" class="form_btns_button">50%</button>
+          <input class="form_btns_button" type="text" placeholder="Custom" />
+        </div>
+
+        <label class="form__label">Number of People</label>
+        <input type="number" id="total-people" class="form__input" />
+      </form>
+    </main>
     <!--Archivo de JavaScript-->
     <script src="./js/main.js" type="module"></script>
   </body>
