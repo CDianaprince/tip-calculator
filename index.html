@@ -7,6 +7,11 @@
     <title>Tip Calculator</title>
     <!--Link para Favicon-->
     <link rel="icon" type="image/x-icon" href="./asset/img/favicon-32x32.png" />
+    <!--Link fontaweson-->
+    <script
+      src="https://kit.fontawesome.com/affdc5536d.js"
+      crossorigin="anonymous"
+    ></script>
     <!--hoja Css-->
     <!--<link rel="stylesheet" href="./asset/css/style.css" />-->
   </head>
@@ -18,8 +23,13 @@
     <!--Main-->
     <main id="main">
       <form id="main-form" class="form">
-        <label class="form__label">Bill</label>
-        <input type="number" id="total-bill" class="form__input" />
+        <div class="form__box">
+          <label class="form__box__label">Bill</label>
+          <div class="form__box__inputs">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <input type="number" id="total-bill" class="form__box__input" />
+          </div>
+        </div>
         <div class="form_btns">
           <button type="button" class="form_btns_button">5%</button>
           <button type="button" class="form_btns_button">10%</button>
@@ -29,10 +39,26 @@
           <button type="button" class="form_btns_button">50%</button>
           <input class="form_btns_button" type="text" placeholder="Custom" />
         </div>
-
-        <label class="form__label">Number of People</label>
-        <input type="number" id="total-people" class="form__input" />
+        <div class="form__box">
+          <label class="form__box__label">Number of People</label>
+          <div class="form__box__inputs">
+            <i class="fa-solid fa-user"></i>
+            <input type="number" id="total-people" class="form__box__input" />
+          </div>
+        </div>
       </form>
+
+      <section id="result" class="result">
+        <div class="result__tip">
+          <h3>Tip Amount<span>/ persona</span></h3>
+          <p id="result-tip">$0.00</p>
+        </div>
+        <div class="result__total">
+          <h3>Total<span>/ persona</span></h3>
+          <p id="result-tip">$0.00</p>
+        </div>
+        <button type="button" class="result__btn">Reset</button>
+      </section>
     </main>
     <!--Archivo de JavaScript-->
     <script src="./js/main.js" type="module"></script>
