@@ -43,9 +43,9 @@ form.addEventListener('submit', (e) => {
 
   const tipFinal = tipCalculator(subTotalF, porcenTipF, personasF);
 
-  console.log(tipFinal);
+  console.log(tipFinal.toFixed(2));
 
-  const totalF = totaFinal(subTotalF, tipFinal, personasF);
+  const totalF = totaFinal(subTotalF, personasF, tipFinal);
 
   console.log(totalF);
 
