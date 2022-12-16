@@ -1,6 +1,6 @@
 import tipCalculator from './modules/tipCalculator.js';
 
-/*import totaFinal from './modules/TotalFinal.js';*/
+import totaFinal from './modules/TotalFinal.js';
 
 // Constante de lps elementos de HTML
 const main = document.getElementById('main');
@@ -8,11 +8,11 @@ const form = document.getElementById('main-form');
 
 //Guardar valores en variable
 const subtotal = document.getElementById('total-bill');
-const porcenDiv = document.getElementById('form_btns') ;
+const porcenDiv = document.getElementById('form-btns');
 const personas = document.getElementById('total-people');
 
 //Variable para a;;macenar el valor porcentual seleccionado
-let porceTip;
+let porcenTip;
 
 //evento para escuchar que boton estamos dando click
 porcenDiv.addEventListener('click', (e) => {
@@ -32,8 +32,8 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   //crear objeto constante con valores de la forma
-  const formulario ={
-    subtotalF: subtotal.value,
+  const formulario = {
+    subTotalF: subtotal.value,
     porcenTipF: porcenTip.value,
     personasF: personas.value,
   }
@@ -45,7 +45,7 @@ form.addEventListener('submit', (e) => {
 
   console.log(tipFinal);
 
-  const totalF = totalFinal(subtotalF, tipFinal, personasF);
+  const totalF = totalFinal(subTotalF, tipFinal, personasF);
 
   console.log(totalF);
 
