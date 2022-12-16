@@ -39,13 +39,13 @@ form.addEventListener('submit', (e) => {
   }
   console.log(formulario);
 
-  const { subtotalF, porcenTipF, personasF } = formulario;
+  const { subTotalF, porcenTipF, personasF } = formulario;
 
-  const tipFinal = tipCalculator(subtotalF, porcenTip, personasF);
+  const tipFinal = tipCalculator(subTotalF, porcenTipF, personasF);
 
   console.log(tipFinal);
 
-  const totalF = totalFinal(subTotalF, tipFinal, personasF);
+  const totalF = totaFinal(subTotalF, tipFinal, personasF);
 
   console.log(totalF);
 

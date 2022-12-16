@@ -27,25 +27,43 @@
           <label class="form__box__label">Bill</label>
           <div class="form__box__inputs">
             <i class="fa-solid fa-dollar-sign"></i>
-            <input type="number" id="total-bill" class="form__box__input" />
+            <input type="number" id="total-bill" />
           </div>
         </div>
-        <div class="form_btns" id="form-btns">
-          <button type="button" class="form_btns_button" value="0.05">5%</button>
-          <button type="button" class="form_btns_button" value="0.10">10%</button>
-          <button type="button" class="form_btns_button" value="0.15">15%</button>
-          <button type="button" class="form_btns_button"value="0.20">20%</button>
-          <button type="button" class="form_btns_button" value="0.25">25%</button>
-          <button type="button" class="form_btns_button" value="0.50">50%</button>
-          <input class="form_btns_button" type="text" placeholder="Custom" id="custom-tip" />
+        <div class="form__btns" id="form-btns">
+          <button type="button" class="form__btns__button" value="0.05">
+            5%
+          </button>
+          <button type="button" class="form__btns__button" value="0.10">
+            10%
+          </button>
+          <button type="button" class="form__btns__button" value="0.15">
+            15%
+          </button>
+          <button type="button" class="form__btns__button" value="0.20">
+            20%
+          </button>
+          <button type="button" class="form__btns__button" value="0.25">
+            25%
+          </button>
+          <button type="button" class="form__btns__button" value="0.50">
+            50%
+          </button>
+          <input
+            class="form__btns__button"
+            type="text"
+            placeholder="Custom"
+            id="custom-tip"
+          />
         </div>
         <div class="form__box">
           <label class="form__box__label">Number of People</label>
           <div class="form__box__inputs">
             <i class="fa-solid fa-user"></i>
-            <input type="number" id="total-people" class="form__box__input" />
+            <input type="number" id="total-people" />
           </div>
         </div>
+        <button type="submit">Calculate</button>
       </form>
 
       <section id="result" class="result">
@@ -55,7 +73,7 @@
         </div>
         <div class="result__total">
           <h3>Total<span>/ persona</span></h3>
-          <p id="result-tip">$0.00</p>
+          <p id="result-total">$0.00</p>
         </div>
         <button type="button" class="result__btn">Reset</button>
       </section>

@@ -1,9 +1,11 @@
 function totalFinal(subtotal, personas, propina) {
   let totalF;
 
-  totalFinal = subtotal / personas;
+  totalF = subtotal / personas;
 
   totalF += propina; 
+
+  totalF = totalF;
 
 
   return totalF;
