@@ -1,0 +1,255 @@
+/*
+  Variables
+*/
+$main-bg: hsl(185, 41%, 84%);
+$white: hsl(0, 0%, 100%);
+$input-bg: hsl(189, 41%, 97%);
+$btn-bg: hsl(183, 100%, 15%);
+$input-text: hsl(183, 100%, 15%);
+$btn-active: hsl(172, 67%, 45%);
+$btn-active-hover: hsl(172, 65%, 37%);
+$btn-active-act: hsl(172, 64%, 31%);
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Space Mono', monospace;
+}
+
+/*
+  Color del placeholder
+*/
+::placeholder {
+  color: hsl(184, 14%, 56%);
+  font-weight: 700;
+  margin-right: 0.8rem;
+}
+
+/*
+  Estilos para celular
+*/
+body {
+  background-color: $main-bg;
+}
+
+.header {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    width: 17%;
+    height: 30%;
+  }
+}
+
+.main {
+  background-color: $white;
+  border-radius: 1rem 1rem 0 0;
+  padding: 0.5rem 0 1.75rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.4rem;
+
+  &__box {
+    width: 100%;
+    margin-bottom: 1rem;
+
+    &__label {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: hsl(186, 14%, 43%);
+    }
+
+    &__inputs {
+      height: 2.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: hsl(189, 41%, 97%);
+      padding: 0.3rem 1rem;
+      border-radius: 0.8rem;
+
+      input {
+        border: none;
+        outline: none;
+        text-align: right;
+        font-size: 1.5rem;
+        background-color: $input-bg;
+        color: $input-text;
+        font-weight: 700;
+        z-index: 1;
+        width: 95%;
+      }
+
+      /* Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      input[type=number] {
+        -moz-appearance: textfield;
+      }
+    }
+
+    &__container {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+
+      &__btn {
+        border: none;
+        background-color: $btn-bg;
+        color: $white;
+        font-weight: 700;
+        font-size: 1.5rem;
+        border-radius: 0.4rem;
+        width: 47%;
+        margin-top: 0.8rem;
+        padding: 0.7rem 0;
+        outline: none;
+        transition: 0.25s;
+      }
+
+      &__btn:nth-child(odd) {
+        margin-right: 6%;
+      }
+
+      &__btn.active {
+        background-color: $btn-active;
+        color: $input-text;
+      }
+
+      input {
+        text-align: right;
+        background-color: $input-bg;
+        color: $input-text;
+        width: 45%;
+        padding-right: 2%;
+      }
+    }
+  }
+
+  &__calculate {
+    border: none;
+    background-color: $btn-active;
+    color: $input-text;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.7rem 0;
+    border-radius: 0.4rem;
+  }
+}
+
+.result {
+  background-color: $btn-bg;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 1rem;
+  border-radius: 0.8rem;
+  margin: 0 1.4rem;
+
+  &__box {
+    display: flex;
+    color: $white;
+    justify-content: space-between;
+    margin-bottom: 1.4rem;
+
+    h3 {
+      font-size: 0.8rem;
+
+      span {
+        display: block;
+        color: hsl(184, 14%, 56%);
+      }
+    }
+
+    p {
+      color: $btn-active;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+  }
+
+  &__btn {
+    border: none;
+    background-color: $btn-active;
+    color: $input-text;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+    border-radius: 0.4rem;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .header {
+    height: 20vh;
+  
+    &__title {
+      width: 7%;
+      height: 28%;
+    }
+  }
+
+  .main {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    height: 60vh;
+    border-radius: 1rem;
+    margin: 0 auto;
+  }
+
+  .form {
+    width: 50%;
+    
+    &__box {
+      &__container {
+        &__btn {
+          width: 30%;
+          padding: 0.2rem 0;
+          margin-right: 0;
+        }
+
+        &__btn:nth-child(1),
+        &__btn:nth-child(2),
+        &__btn:nth-child(4),
+        &__btn:nth-child(5) {
+          margin-right: 2%;
+        }
+
+        input {
+          width: 30%;
+          padding-right: 0;
+        }
+      }
+    }
+  }
+
+  .result {
+    width: 50%;
+    justify-content: space-between;
+
+    &__first {
+      margin: 1rem 0;
+    }
+
+    &__box:last-child {
+      margin-top: 2.75rem;
+    }
+  }
+}
