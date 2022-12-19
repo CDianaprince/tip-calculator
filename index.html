@@ -12,70 +12,111 @@
       src="https://kit.fontawesome.com/affdc5536d.js"
       crossorigin="anonymous"
     ></script>
+    <!--GoogleFont-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <!--hoja Css-->
-    <!--<link rel="stylesheet" href="./asset/css/style.css" />-->
+    <link rel="stylesheet" href="./asset/css/style.css" />
   </head>
+
   <body>
-    <!--Encabezado-->
+    <!-- Encabezado -->
     <header id="header" class="header">
-      <h1 class="header__h1">Splitter</h1>
+      <img
+        src="./asset/img/logo.svg"
+        class="header__title"
+        alt="Logo principal de la aplicacion"
+      />
     </header>
-    <!--Main-->
-    <main id="main">
+
+    <!-- Main Section -->
+    <main id="main" class="main">
       <form id="main-form" class="form">
         <div class="form__box">
           <label class="form__box__label">Bill</label>
           <div class="form__box__inputs">
-            <i class="fa-solid fa-dollar-sign"></i>
-            <input type="number" id="total-bill" />
+            <img src="./asset/img/icon-dollar.svg" alt="Simbolo de dollar" />
+            <input type="number" id="total-bill" required placeholder="0" />
           </div>
         </div>
-        <div class="form__btns" id="form-btns">
-          <button type="button" class="form__btns__button" value="0.05">
-            5%
-          </button>
-          <button type="button" class="form__btns__button" value="0.10">
-            10%
-          </button>
-          <button type="button" class="form__btns__button" value="0.15">
-            15%
-          </button>
-          <button type="button" class="form__btns__button" value="0.20">
-            20%
-          </button>
-          <button type="button" class="form__btns__button" value="0.25">
-            25%
-          </button>
-          <button type="button" class="form__btns__button" value="0.50">
-            50%
-          </button>
-          <input
-            class="form__btns__button"
-            type="text"
-            placeholder="Custom"
-            id="custom-tip"
-          />
+
+        <div class="form__box">
+          <label class="form__box__label">Select Tip %</label>
+
+          <div class="form__box__container" id="form-btns">
+            <button
+              type="button"
+              class="form__box__container__btn"
+              value="0.05"
+            >
+              5%
+            </button>
+            <button
+              type="button"
+              class="form__box__container__btn"
+              value="0.10"
+            >
+              10%
+            </button>
+            <button
+              type="button"
+              class="form__box__container__btn"
+              value="0.15"
+            >
+              15%
+            </button>
+            <button
+              type="button"
+              class="form__box__container__btn"
+              value="0.25"
+            >
+              25%
+            </button>
+            <button
+              type="button"
+              class="form__box__container__btn"
+              value="0.50"
+            >
+              50%
+            </button>
+            <input
+              class="form__box__container__btn"
+              type="text"
+              placeholder="Custom"
+              id="custom-tip"
+            />
+          </div>
         </div>
+
         <div class="form__box">
           <label class="form__box__label">Number of People</label>
           <div class="form__box__inputs">
-            <i class="fa-solid fa-user"></i>
-            <input type="number" id="total-people" />
+            <img src="./asset/img/icon-person.svg" alt="icono de una persona" />
+            <input type="number" id="total-people" required placeholder="0" />
           </div>
         </div>
-        <button type="submit">Calculate</button>
+
+        <button type="submit" class="form__calculate">Calculate</button>
       </form>
 
       <section id="result" class="result">
-        <div class="result__tip">
-          <h3>Tip Amount<span>/ persona</span></h3>
-          <p id="result-tip">$0.00</p>
+        <div class="result__first">
+          <div class="result__box">
+            <h3>Tip Amount <span>/ person</span></h3>
+            <p id="result-tip">$0.00</p>
+          </div>
+
+          <div class="result__box">
+            <h3>Total <span>/ person</span></h3>
+            <p id="result-total">$0.00</p>
+          </div>
         </div>
-        <div class="result__total">
-          <h3>Total<span>/ persona</span></h3>
-          <p id="result-total">$0.00</p>
-        </div>
-        <button type="button" class="result__btn">Reset</button>
+
+        <button type="button" class="result__btn" id="reset-btn">Reset</button>
       </section>
     </main>
     <!--Archivo de JavaScript-->
