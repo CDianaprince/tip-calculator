@@ -26,6 +26,7 @@ const resetBtn = document.getElementById('reset-btn');
 // Variable para almacenar el valor porcentual seleccionado
 let porcenTip;
 let custom;
+let check;
 
 // Evento para escuchar a que boton le estamos dando click
 porcenDiv.addEventListener('click', (e) => {
@@ -39,9 +40,11 @@ porcenDiv.addEventListener('click', (e) => {
 
   // Condicion para escuchar al custom
   if (e.target === customTip) {
-    custom = e.target;
+    porcenTip = e.target;
 
-    custom.classList.remove('active');
+    check = true;
+
+    porcenTip.classList.remove('active');
   }
 });
 
@@ -49,6 +52,11 @@ porcenDiv.addEventListener('click', (e) => {
 form.addEventListener('submit', (e) => {
   // Evitar la action por defecto
   e.preventDefault();
+
+  //si le dieron click a custom, entonces dividamos su valor entre 10
+  if(check) {
+    porcenTip.value = porcenTip.value/100;
+  }
 
   // crear objecto constante con los valores de la forma
   const formulario = {
