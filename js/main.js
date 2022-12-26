@@ -67,6 +67,22 @@ form.addEventListener('submit', (e) => {
 
   const { subTotalF, porcenTipF, personasF } = formulario;
 
+  //Validdar que no sean ceros
+  if(!notZero(parseFloat(subTotalF))){
+    subtotal.parentElement.classList.add('invalid');
+   
+   
+   } else{
+   updateDom(subTotalF, porcenTipF, personasF);
+   subtotal.parentElement.classList.add('valid');
+   personas.parentElement.classList.add('valid');
+
+  }
+
+});
+
+// funcion para actualizar el DOM
+function updateDom(subTotalF, porcenTipF, personasF) {
   const tipFinal = tipCalculator(subTotalF, porcenTipF, personasF);
 
   const totalF = totalFinal(subTotalF, personasF, tipFinal);
@@ -74,7 +90,8 @@ form.addEventListener('submit', (e) => {
   // Llamar a las funciones que actualizan el DOM
   updateTip(tipFinal.toFixed(2), tipResult);
   updateTotal(totalF.toFixed(2), totalResult);
-});
+  
+}
 
 // Boton para reiniciar la tip calculator
 resetBtn.addEventListener('click', (e) => {
@@ -95,9 +112,10 @@ Validacion de Forma
 */
 
 function notZero(input) {
+  console.log(input)
   let check = true;
 
-  if(input.value <= 0) {
+  if(input <= 0) {
     console.log("Esto no es valido");
     check = false;
   }

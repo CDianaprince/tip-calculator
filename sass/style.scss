@@ -25,6 +25,7 @@ $btn-active-act: hsl(172, 64%, 31%);
   margin-right: 0.8rem;
 }
 
+
 /*
   Estilos para celular
 */
@@ -253,4 +254,13 @@ body {
       margin-top: 2.75rem;
     }
   }
+}
+
+/*Clases de Validacion*/
+.valid{
+  border: 1px solid $btn-active;
+
+}
+.invalid{
+  outline: 1px solid red ;
 }
