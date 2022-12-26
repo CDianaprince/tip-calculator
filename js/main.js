@@ -89,3 +89,18 @@ resetBtn.addEventListener('click', (e) => {
   tipResult.innerText = '$0.00';
   totalResult.innerText = '$0.00';
 });
+
+/* 
+Validacion de Forma
+*/
+
+function notZero(input) {
+  let check = true;
+
+  if(input.value <= 0) {
+    console.log("Esto no es valido");
+    check = false;
+  }
+  return check;
+
+}
