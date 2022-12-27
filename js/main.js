@@ -40,7 +40,7 @@ porcenDiv.addEventListener('click', (e) => {
   }
 
   if(e.target.classList.contains('form__box__container__btn')) {
-    check = true;
+    checkBtn = true;
   }
 
   porcenTip = e.target;
