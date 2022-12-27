@@ -25,17 +25,22 @@ const resetBtn = document.getElementById('reset-btn');
 //Elememto para almacenar texto del invalid
 const invalid1 = document.getElementById('not-valid1');
 const invalid2 = document.getElementById('not-valid2');
+const invalid3 = document.getElementById('not-valid3');
 
 
 // Variable para almacenar el valor porcentual seleccionado
 let porcenTip;
-let custom;
-let check;
+let checkBtn = false;
+let checkCustom;
 
 // Evento para escuchar a que boton le estamos dando click
 porcenDiv.addEventListener('click', (e) => {
   for(let i = 0; i < btns.length; i++) {
     btns[i].classList.remove('active');
+  }
+
+  if(e.target.classList.contains('form__box__container__btn')) {
+    check = true;
   }
 
   porcenTip = e.target;
@@ -46,7 +51,7 @@ porcenDiv.addEventListener('click', (e) => {
   if (e.target === customTip) {
     porcenTip = e.target;
 
-    check = true;
+    checkCustom = true;
 
     porcenTip.classList.remove('active');
   }
@@ -57,8 +62,10 @@ form.addEventListener('submit', (e) => {
   // Evitar la action por defecto
   e.preventDefault();
 
+  if(validateClick(checkBtn)) {
+
   //si le dieron click a custom, entonces dividamos su valor entre 10
-  if(check) {
+  if(checkCustom) {
     porcenTip.value = porcenTip.value/100;
   }
 
@@ -79,6 +86,8 @@ form.addEventListener('submit', (e) => {
     removeBorder(subtotal, 'valid');
     removeBorder(personas, 'valid');
   }
+
+ } 
    
 
 });
@@ -172,4 +181,17 @@ function validateAll(subTotalF,personasF) {
    }
 
    return check;
+
+}
+
+function validateClick(checkBtn) {
+  let check = true;
+  if(!checkBtn) {
+    check = false;
+    
+    invalid3.innerText = 'Tienes que darle click almenos a un boton';
+    removeText(invalid3);
+
+  }
+  return check;
 }
