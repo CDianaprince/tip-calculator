@@ -22,6 +22,10 @@ const personas = document.getElementById('total-people');
 const btns = document.querySelectorAll('.form__box__container__btn');
 const resetBtn = document.getElementById('reset-btn');
 
+//Elememto para almacenar texto del invalid
+const invalid1 = document.getElementById('not-valid1');
+const invalid2 = document.getElementById('not-valid2');
+
 
 // Variable para almacenar el valor porcentual seleccionado
 let porcenTip;
@@ -67,17 +71,15 @@ form.addEventListener('submit', (e) => {
 
   const { subTotalF, porcenTipF, personasF } = formulario;
 
-  //Validdar que no sean ceros
-  if(!notZero(parseFloat(subTotalF))){
-    subtotal.parentElement.classList.add('invalid');
-   
-   
-   } else{
-   updateDom(subTotalF, porcenTipF, personasF);
-   subtotal.parentElement.classList.add('valid');
-   personas.parentElement.classList.add('valid');
-
+  if(validateAll(subTotalF,personasF)) {
+    updateDom(subTotalF, porcenTipF, personasF);
+    subtotal.parentElement.classList.add('valid');
+    personas.parentElement.classList.add('valid');
+    
+    removeBorder(subtotal, 'valid');
+    removeBorder(personas, 'valid');
   }
+   
 
 });
 
@@ -93,11 +95,34 @@ function updateDom(subTotalF, porcenTipF, personasF) {
   
 }
 
+//funcion para quitar los mensajes en un periodo de tiempo
+function removeText(element) {
+  setTimeout(() => {
+    element.innerText = '';
+  
+  },4000);
+}
+
+function removeBorder(element,classOfElement) {
+  setTimeout(() => {
+    element.parentElement.classList.remove(classOfElement);
+  
+  },3000);
+}
+
 // Boton para reiniciar la tip calculator
 resetBtn.addEventListener('click', (e) => {
   subtotal.value = '';
   customTip.value = '';
   personas.value = '';
+ 
+  //quitar validos
+  subtotal.parentElement.classList.remove('valid');
+  personas.parentElement.classList.remove('valid');
+
+  //quitar invalidos
+  subtotal.parentElement.classList.remove('invalid');
+  personas.parentElement.classList.remove('invalid');
 
   for(let i = 0; i < btns.length; i++) {
     btns[i].classList.remove('active');
@@ -112,7 +137,6 @@ Validacion de Forma
 */
 
 function notZero(input) {
-  console.log(input)
   let check = true;
 
   if(input <= 0) {
@@ -121,4 +145,31 @@ function notZero(input) {
   }
   return check;
 
+}
+
+function validateAll(subTotalF,personasF) {
+  let check = true;
+
+  //Validdar que no sean ceros
+  if(!notZero(parseFloat(subTotalF))){
+    check = false;
+
+    subtotal.parentElement.classList.add('invalid');
+    invalid1.innerText = "No puede ser cero o menor que cero";
+
+    removeText(invalid1);
+    removeBorder(subtotal, 'invalid');
+   } 
+
+   if(!notZero(parseFloat(personasF))){
+    check = false;
+
+    personas.parentElement.classList.add('invalid');
+    invalid2.innerText = "No puede ser cero o menor que cero";
+
+    removeText(invalid2);
+    removeBorder(personas, 'invalid');
+   }
+
+   return check;
 }
